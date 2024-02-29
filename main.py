@@ -100,6 +100,16 @@ def addCampaignsToGAM(campaigns, key_id, custom_targeting_service):
 
 
 def main(application_name, network_code, path_to_credentials, key_value_name, id_values_list, version='v202308'):
+    '''
+
+    :param application_name (string): The name of the application accessing the API. this is used for labeling exclusivly
+    :param network_code (int): the network code of the GAM account you wish to access
+    :param path_to_credentials (string/path): the path to the credential files needed to authenticate this script. this is always a JSON file
+    :param key_value_name (string): the name of the key for the key-value that will have its values updated
+    :param id_values_list (list of strings): the list of ID values that we want to create in the GAM account associated with the provided network code
+    :param version (string): the version of the GAM API being used.
+    :return: returns a list of values that were created in GAM for the provided key_value pair
+    '''
     client = ad_manager.AdManagerClient.LoadFromString(f"""ad_manager:
       application_name: {application_name}
       network_code: {network_code}
